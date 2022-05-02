@@ -1,0 +1,46 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.ejemplo.SpringBoot.service;
+
+import com.ejemplo.SpringBoot.model.Proyecto;
+import com.ejemplo.SpringBoot.model.Skill;
+import com.ejemplo.SpringBoot.repository.ProyectoRepository;
+import com.ejemplo.SpringBoot.repository.SkillRepository;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+/**
+ *
+ * @author MAURICIO
+ */
+@Service
+public class SkillService implements ISkillService{
+    @Autowired
+    SkillRepository skiRep;
+
+@Override
+    public List<Skill> verSkills() {
+       
+    return skiRep.findAll();
+    
+    
+    }
+
+    @Override
+    public void crearSkill(Skill p) {
+        skiRep.save(p);
+    }
+
+    @Override
+    public void borrarSkill(Long id) {
+        skiRep.deleteById(id);
+    }
+
+    @Override
+    public Skill buscarSkill(Long id) {
+        return skiRep.findById(id).orElse(null);
+    }
+}

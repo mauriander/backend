@@ -1,0 +1,48 @@
+EXPERIENCIA
+{
+    "id":98,
+"nombre":"Rio salado",
+"descripcion":"Administrativo en empresa contructora",
+"fechaIni":"2015-11",
+"fechaFin":null,
+
+"persona":{"id":35},
+"proyecto":{"id":100}
+}
+PROYECTO
+{
+"id":100,
+"nombre":"VACIO",
+"descripcion":"VACIO",
+"tipotec":"VACIO",
+"url":"VACIO"
+
+}
+
+SKILL
+{
+"id":11,
+"nombre":"Java",
+"valor":43,
+"persona":{"id":35, "localidad":{"id":9}}
+
+
+}
+LOCALIDAD
+{
+"id" : 12,
+"cp":305,
+"nombre" : "Poblado sf",
+"province":{"id":9 }
+}
+PROVINCIA
+{
+"id" : 9,
+"nombre" : "tierra del fuego"
+}
+{
+"id":35,
+"apellido":"Farias",
+"nombre":"Ernesto",
+"localidad":{"id":12}
+}
