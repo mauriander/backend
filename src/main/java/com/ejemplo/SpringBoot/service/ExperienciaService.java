@@ -38,6 +38,24 @@ ExperienciaRepository expRep;
     public Experiencia buscarExperiencia(Long id) {
           return expRep.findById(id).orElse(null);
     }
+@Override
+public void editarExperiencia(Long id,Experiencia p){
+Experiencia pnew=expRep.findById(id).orElse(null);
+     
+      if(pnew!=null){
+            pnew.setNombre(p.getNombre());
+            pnew.setDescripcion(p.getDescripcion());
+            pnew.setFechaFin(p.getFechaFin());
+pnew.setFechaIni(p.getFechaIni());
+//pnew.setPersona(p.getPersona());
+//pnew.setProyecto(p.getProyecto());
+            
+            
+            expRep.save(pnew);}
+      else{
+      expRep.save(p);}
+
+}
    
     
 }

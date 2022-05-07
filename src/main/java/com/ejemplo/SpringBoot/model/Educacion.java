@@ -5,6 +5,7 @@
 package com.ejemplo.SpringBoot.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -29,7 +30,7 @@ import lombok.Setter;
 @Table(name = "educacion")
 @Getter
 @Setter
-public class Educacion   {
+public class Educacion implements Serializable  {
 
     @Id  
     @GeneratedValue (strategy=GenerationType.AUTO)

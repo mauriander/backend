@@ -17,6 +17,7 @@ public interface IProyectoService {
     public void crearProyecto(Proyecto p);
     public void borrarProyecto(Long id);
     public Proyecto buscarProyecto(Long id);
+    public void editarProyecto(Long id,Proyecto p);
  
 
 

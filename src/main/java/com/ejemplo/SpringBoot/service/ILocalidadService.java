@@ -15,5 +15,6 @@ public interface ILocalidadService {
     public List<Localidad> verLocalidades();
     public void crearLocalidad(Localidad p);
     public void borrarLocalidad(Long id);
-    public Localidad buscarLocalidad(Long id);  
+    public Localidad buscarLocalidad(Long id); 
+public void editarLocalidad(Long id,Localidad p); 
 }

@@ -4,6 +4,7 @@
  */
 package com.ejemplo.SpringBoot.model;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -26,7 +27,7 @@ import lombok.Setter;
 @Table(name = "persona_educacion")
 @Getter
 @Setter
-public class PersonaEducacion {
+public class PersonaEducacion implements Serializable{
     @Id
     @GeneratedValue (strategy=GenerationType.AUTO)
     @Column(name = "id")

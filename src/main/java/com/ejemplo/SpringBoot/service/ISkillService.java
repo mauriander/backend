@@ -17,5 +17,6 @@ public List<Skill> verSkills();
     public void crearSkill(Skill p);
     public void borrarSkill(Long id);
     public Skill buscarSkill(Long id);
+public void editarSkill(Long id,Skill p);
     
 }

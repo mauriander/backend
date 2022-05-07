@@ -11,6 +11,7 @@ package com.ejemplo.SpringBoot.model;
 
 
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,7 +29,7 @@ import lombok.Setter;
 @Table(name = "skill")
  @Getter
  @Setter
-public class Skill {
+public class Skill implements Serializable{
     
     @Id
     @GeneratedValue (strategy=GenerationType.AUTO)

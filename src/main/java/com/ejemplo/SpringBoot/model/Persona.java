@@ -7,6 +7,7 @@ package com.ejemplo.SpringBoot.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -34,6 +35,14 @@ public class Persona implements Serializable{
     private String nombre;
     private String apellido;
     
+    private Date fenac;
+
+   
+    private String urlimage;
+    private String domicilio;
+    
+     
+    
    
     @JoinColumn(name = "LOCALIDAD_id", referencedColumnName = "id", nullable = false)
     @ManyToOne(optional = false)
@@ -55,17 +64,19 @@ public class Persona implements Serializable{
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "persona")
     private User user;
 
-    public Persona(Long id, String nombre, String apellido, Localidad localidad, Set<PersonaEducacion> personaEducacionCollection, Set<Experiencia> experienciaCollection, Set<Skill> skillCollection, User user) {
+   public Persona(Long id, String nombre, String apellido, String domicilio, Date fenac, String urlimage, Localidad localidad, Set<PersonaEducacion> personaEducacionCollection, Set<Experiencia> experienciaCollection, Set<Skill> skillCollection, User user) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.domicilio = domicilio;
+        this.fenac = fenac;
+        this.urlimage = urlimage;
         this.localidad = localidad;
         this.personaEducacionCollection = personaEducacionCollection;
         this.experienciaCollection = experienciaCollection;
         this.skillCollection = skillCollection;
         this.user = user;
     }
-
    
     
 

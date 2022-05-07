@@ -4,7 +4,9 @@
  */
 package com.ejemplo.SpringBoot.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -29,7 +31,7 @@ import lombok.Setter;
 @Table(name = "tipoeducacion")
 @Getter
 @Setter
-public class TipoEducacion {
+public class TipoEducacion implements Serializable  {
     @Id
     @GeneratedValue (strategy=GenerationType.AUTO)
     @Column(name = "id")
@@ -38,13 +40,13 @@ public class TipoEducacion {
     @Column(name = "nombre")
     private String nombre;
   
-    @Column(name = "fecha_ini")
-    @Temporal(TemporalType.DATE)
+   @Column(name = "fechaini")
+    @JsonFormat(pattern="yyyy-MM")
     private Date fechaini;
     
-    @Column(name = "fecha_fin")
-    @Temporal(TemporalType.DATE)
-    private Date fechafin;
+    @Column(name = "fechafin")
+    @JsonFormat(pattern="yyyy-MM")
+     private Date fechafin;
      
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoeducacion")
@@ -57,6 +59,8 @@ public class TipoEducacion {
         this.fechafin = fechafin;
         this.educacionCollection = educacionCollection;
     }
+
+   
 
     
     

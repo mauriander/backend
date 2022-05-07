@@ -4,6 +4,7 @@
  */
 package com.ejemplo.SpringBoot.service;
 
+import com.ejemplo.SpringBoot.model.Educacion;
 import com.ejemplo.SpringBoot.model.Experiencia;
 import java.util.List;
 
@@ -16,4 +17,5 @@ public interface IExperienciaService {
     public void crearExperiencia(Experiencia p);
     public void borrarExperiencia(Long id);
     public Experiencia buscarExperiencia(Long id);  
+public void editarExperiencia(Long id,Experiencia p);
 }

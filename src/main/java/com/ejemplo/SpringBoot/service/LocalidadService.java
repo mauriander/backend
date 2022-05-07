@@ -48,5 +48,21 @@ public class LocalidadService implements ILocalidadService{
     public Localidad buscarLocalidad(Long id) {
         return locRep.findById(id).orElse(null);
     }
+
+ @Override
+public void editarLocalidad(Long id,Localidad p){
+        Localidad pnew=locRep.findById(id).orElse(null);
+
+     
+      if(pnew!=null){
+            pnew.setNombre(p.getNombre());
+            pnew.setCp(p.getCp());
+//pnew.setPersonaCollection(p.getPersonaCollection());
+pnew.setProvince(p.getProvince());
+            locRep.save(pnew);}
+      else{
+      locRep.save(p);}
+
+}
     
 }
