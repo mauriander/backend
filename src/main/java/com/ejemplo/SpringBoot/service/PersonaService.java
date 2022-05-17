@@ -42,4 +42,23 @@ public class PersonaService implements IPersonaService{
     return perRep.findById(id).orElse(null);
     }
     
+    @Override
+    public void editarPersona(Long id, Persona p) {
+     Persona pnew=perRep.findById(id).orElse(null);
+     //pregunto si no es nulo, entonces edito el existente
+      if(pnew!=null){
+            pnew.setNombre(p.getNombre());
+            pnew.setApellido(p.getApellido());
+            pnew.setDomicilio(p.getDomicilio());
+            pnew.setFenac(p.getFenac());
+            pnew.setUrlimage(p.getUrlimage());
+            //continuar con cada atributo
+            
+            perRep.save(pnew);}
+      else{//si es nulo, no exite entonces lo creo
+          
+     perRep.save(p);}
+     
+
+    }
 }

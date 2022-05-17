@@ -41,4 +41,24 @@ public class ProyectoService implements IProyectoService{
     public Proyecto buscarProyecto(Long id) {
         return proRep.findById(id).orElse(null);
     }
+
+ @Override
+ public void editarProyecto(Long id,Proyecto p){
+Proyecto pnew=proRep.findById(id).orElse(null);
+     
+      if(pnew!=null){
+            pnew.setNombre(p.getNombre());
+
+            pnew.setDescripcion(p.getDescripcion());
+            pnew.setTipotec(p.getTipotec());
+            pnew.setUrl(p.getUrl());
+            //pnew.setNombre(p.getNombre());
+
+            proRep.save(pnew);}
+      else{
+      proRep.save(p);}
+
+}
+
+
 }

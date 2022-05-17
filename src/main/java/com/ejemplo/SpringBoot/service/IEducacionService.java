@@ -4,10 +4,18 @@
  */
 package com.ejemplo.SpringBoot.service;
 
+import com.ejemplo.SpringBoot.model.Educacion;
+
+import java.util.List;
+
 /**
  *
  * @author MAURICIO
  */
 public interface IEducacionService {
-    
+    public List<Educacion> verEducaciones();
+    public void crearEducacion(Educacion p);
+    public void borrarEducacion(Long id);
+    public Educacion buscarEducacion(Long id);
+public void editarEducacion(Long id,Educacion p);
 }

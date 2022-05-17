@@ -5,6 +5,7 @@
 package com.ejemplo.SpringBoot.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDate;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -44,20 +45,27 @@ public class Experiencia {
     private String descripcion;
     //@Basic(optional = false)
     
+    
 
     @Column(name = "fecha_ini")
-    @JsonFormat(pattern="yyyy-MM")
+    @Temporal (TemporalType.DATE)
     private Date fechaIni;
 
-
+//@JsonFormat(pattern="yyyy-MM")
     @Column(name = "fecha_fin")
-    @JsonFormat(pattern="yyyy-MM")
+    @Temporal (TemporalType.DATE)
     private Date fechaFin;
+    
+     @Column(name = "actual")
+     private Integer actual;
+    
+    
 
     @JoinColumn(name = "PERSONA_id", referencedColumnName = "id", nullable = false)
+     
     @ManyToOne//(optional = false)
     private Persona persona;
-
+/*
     @JoinColumn(name = "PROYECTO_id", referencedColumnName = "id", nullable = false)
     @ManyToOne//(optional = false)
     private Proyecto proyecto;
@@ -71,7 +79,26 @@ public class Experiencia {
         this.persona = persona;
         this.proyecto = proyecto;
     }
-
+*/
+/*
+    public Experiencia(Long id, String nombre, String descripcion, Date fechaIni, Date fechaFin, Persona persona) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.fechaIni = fechaIni;
+        this.fechaFin = fechaFin;
+        this.persona = persona;
+    }
+*/
+    public Experiencia(Long id, String nombre, String descripcion, Date fechaIni, Date fechaFin, Integer actual, Persona persona) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.fechaIni = fechaIni;
+        this.fechaFin = fechaFin;
+        this.actual = actual;
+        this.persona = persona;
+    }
     
 
     

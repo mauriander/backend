@@ -45,5 +45,18 @@ public class ProvinciaService implements IProvinciaService {
     public Provincia buscarProvincia(Long id) {
         return provRepo.findById(id).orElse(null);
     }
+
+    @Override
+    public void editarProvincia(Long id, Provincia p) {
+     Provincia pnew=provRepo.findById(id).orElse(null);
+     
+      if(pnew!=null){
+            pnew.setNombre(p.getNombre());
+            provRepo.save(pnew);}
+      else{
+      provRepo.save(p);}
+     
+
+    }
     
 }

@@ -11,6 +11,8 @@ package com.ejemplo.SpringBoot.model;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,7 +30,7 @@ import lombok.Setter;
 @Table(name = "skill")
  @Getter
  @Setter
-public class Skill {
+public class Skill implements Serializable{
     
     @Id
     @GeneratedValue (strategy=GenerationType.AUTO)
@@ -45,6 +47,7 @@ public class Skill {
         @JoinColumn(name = "PERSONA_id", referencedColumnName = "id",nullable = false)
        ,@JoinColumn(name = "PERSONA_LOCALIDAD_id", referencedColumnName = "LOCALIDAD_id", nullable = false)
     })
+    
     @ManyToOne(optional = false)
     private Persona persona;
 

@@ -4,6 +4,7 @@
  */
 package com.ejemplo.SpringBoot.model;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -26,7 +27,7 @@ import lombok.Setter;
 @Table(name = "persona_educacion")
 @Getter
 @Setter
-public class PersonaEducacion {
+public class PersonaEducacion implements Serializable{
     @Id
     @GeneratedValue (strategy=GenerationType.AUTO)
     @Column(name = "id")
@@ -34,13 +35,15 @@ public class PersonaEducacion {
     
     @JoinColumns({
         @JoinColumn(name = "EDUCACION_id", referencedColumnName = "id", nullable = false),
-        @JoinColumn(name = "EDUCACION_TIPOEDUCACION_id", referencedColumnName = "TIPOEDUCACION_id", nullable = false)})
+       // @JoinColumn(name = "EDUCACION_TIPOEDUCACION_id", referencedColumnName = "TIPOEDUCACION_id", nullable = false)
+    })
     
     @ManyToOne(optional = false)
     private Educacion educacion;
     @JoinColumns({
         @JoinColumn(name = "PERSONA_id", referencedColumnName = "id", nullable = false),
-        @JoinColumn(name = "PERSONA_LOCALIDAD_id", referencedColumnName = "LOCALIDAD_id", nullable = false)})
+        @JoinColumn(name = "PERSONA_LOCALIDAD_id", referencedColumnName = "LOCALIDAD_id", nullable = false)
+    })
     
     @ManyToOne(optional = false)
     private Persona persona;

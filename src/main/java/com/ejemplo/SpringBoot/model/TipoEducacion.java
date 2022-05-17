@@ -4,7 +4,9 @@
  */
 package com.ejemplo.SpringBoot.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -29,7 +31,7 @@ import lombok.Setter;
 @Table(name = "tipoeducacion")
 @Getter
 @Setter
-public class TipoEducacion {
+public class TipoEducacion implements Serializable  {
     @Id
     @GeneratedValue (strategy=GenerationType.AUTO)
     @Column(name = "id")
@@ -38,25 +40,27 @@ public class TipoEducacion {
     @Column(name = "nombre")
     private String nombre;
   
-    @Column(name = "fecha_ini")
-    @Temporal(TemporalType.DATE)
+   @Column(name = "fechaini")
+    @Temporal (TemporalType.DATE)
     private Date fechaini;
     
-    @Column(name = "fecha_fin")
-    @Temporal(TemporalType.DATE)
-    private Date fechafin;
-     
+    @Column(name = "fechafin")
+    @Temporal (TemporalType.DATE)
+     private Date fechafin;
+   /*  
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoeducacion")
     private Collection<Educacion> educacionCollection;
-
-    public TipoEducacion(Long id, String nombre, Date fechaini, Date fechafin, Collection<Educacion> educacionCollection) {
+*/
+    public TipoEducacion(Long id, String nombre, Date fechaini, Date fechafin) {
         this.id = id;
         this.nombre = nombre;
         this.fechaini = fechaini;
         this.fechafin = fechafin;
-        this.educacionCollection = educacionCollection;
+        //this.educacionCollection = educacionCollection;
     }
+
+   
 
     
     

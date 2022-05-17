@@ -6,30 +6,40 @@ package com.ejemplo.SpringBoot.Controller;
 
 //deemos mapear para indicarle que es nuestra clase controlaadora con rest contrllier y el Import correspondiente
 
+import com.ejemplo.SpringBoot.model.Educacion;
 import com.ejemplo.SpringBoot.model.Experiencia;
 import com.ejemplo.SpringBoot.model.Localidad;
 import com.ejemplo.SpringBoot.model.Persona;
+import com.ejemplo.SpringBoot.model.PersonaEducacion;
 import com.ejemplo.SpringBoot.model.Provincia;
 import com.ejemplo.SpringBoot.model.Proyecto;
 import com.ejemplo.SpringBoot.model.Skill;
+import com.ejemplo.SpringBoot.model.TipoEducacion;
+import com.ejemplo.SpringBoot.model.User;
+import com.ejemplo.SpringBoot.service.IEducacionService;
 import com.ejemplo.SpringBoot.service.IExperienciaService;
 import com.ejemplo.SpringBoot.service.ILocalidadService;
+import com.ejemplo.SpringBoot.service.IPersonaEducacionService;
 import com.ejemplo.SpringBoot.service.IPersonaService;
 import com.ejemplo.SpringBoot.service.IProvinciaService;
 import com.ejemplo.SpringBoot.service.IProyectoService;
 import com.ejemplo.SpringBoot.service.ISkillService;
+import com.ejemplo.SpringBoot.service.ITipoEducacionService;
+import com.ejemplo.SpringBoot.service.IUserService;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
+@CrossOrigin
 @RestController
 public class Controller {
     
@@ -81,7 +91,11 @@ public class Controller {
     locServ.crearLocalidad(l);
     }
     
-    
+     @GetMapping("/persona/{id}")
+    public Persona buscarPersona(@PathVariable Long id){
+    //return listaPersonas;
+    return perServ.buscarPersona(id);
+    }
     
     //response body para responder.... es decir para mostrar
     @GetMapping("/ver/personas")
@@ -98,6 +112,8 @@ public class Controller {
     //return listaLocalidades;
     return locServ.verLocalidades();
     }
+    
+    
     
      @DeleteMapping("/eliminar/persona/{id}")
    public void EliminarPersona(@PathVariable Long id){
@@ -131,6 +147,12 @@ public class Controller {
     @DeleteMapping("/eliminar/provincia/{id}")
     public void borrarProvincia(@PathVariable Long id){
         provServ.borrarProvincia(id);
+    }
+    
+    @PutMapping("editar/provincia/{id}")
+    public void editarProvincia(@PathVariable Long id,@RequestBody Provincia p){
+    
+    provServ.editarProvincia(id, p);
     }
     
     
@@ -203,4 +225,101 @@ public class Controller {
     
     
     //--------------------Fin Skill------------------
+    
+     //--------------------Inicio PersonaEducacion------------------
+     @Autowired
+    private IPersonaEducacionService pedServ;      
+        
+    @PostMapping("/new/personaeducacion")
+    public void agregarPersonaEducacion(@RequestBody PersonaEducacion prov){
+        pedServ.crearPersonaEducacion(prov);
+    }
+        
+    @GetMapping("/ver/personaeducaciones")
+    @ResponseBody
+    public List<PersonaEducacion> verPersonaEducaciones(){
+    return pedServ.verPersonaEducaciones();
+    }
+           
+    @DeleteMapping("/eliminar/personaeducacion/{id}")
+    public void borrarPersonaEducacion(@PathVariable Long id){
+        pedServ.borrarPersonaEducacion(id);
+    }
+    
+    
+    //--------------------Fin PersonaEducacion------------------
+    
+    
+    
+    //--------------------Inicio TipoEducacion------------------
+     @Autowired
+    private ITipoEducacionService tedServ;      
+        
+    @PostMapping("/new/tipoeducacion")
+    public void agregarTipoEducacion(@RequestBody TipoEducacion p){
+        tedServ.crearTipoEducacion(p);
+    }
+        
+    @GetMapping("/ver/tipoeducaciones")
+    @ResponseBody
+    public List<TipoEducacion> verTipoEducaciones(){
+    return tedServ.verTipoEducaciones();
+    }
+           
+    @DeleteMapping("/eliminar/tipoeducacion/{id}")
+    public void borrarTipoEducacion(@PathVariable Long id){
+        tedServ.borrarTipoEducacion(id);
+    }
+    
+    
+    //--------------------Fin TipoEducacion------------------
+    
+    
+     //--------------------Inicio TipoEducacion------------------
+     @Autowired
+    private IEducacionService eduServ;      
+        
+    @PostMapping("/new/educacion")
+    public void agregarEducacion(@RequestBody Educacion p){
+        eduServ.crearEducacion(p);
+    }
+        
+    @GetMapping("/ver/educaciones")
+    @ResponseBody
+    public List<Educacion> verEducaciones(){
+    return eduServ.verEducaciones();
+    }
+           
+    @DeleteMapping("/eliminar/educacion/{id}")
+    public void borrarEducacion(@PathVariable Long id){
+        eduServ.borrarEducacion(id);
+    }
+    
+    
+    //--------------------Fin Educacion------------------
+     //--------------------Inicio USER------------------
+    
+      @Autowired
+    private IUserService userServ;      
+        
+    @PostMapping("/new/user")
+    public void agregarUser(@RequestBody User p){
+        userServ.crearUser(p);
+    }
+        
+    @GetMapping("/ver/users")
+    @ResponseBody
+    public List<User> verUsers(){
+    return userServ.verUsers();
+    }
+           
+    @DeleteMapping("/eliminar/user/{id}")
+    public void borrarUser(@PathVariable Long id){
+        userServ.borrarUser(id);
+    }
+    
+     //-------------------FIN USER------------------
+    
+    
+    
 }

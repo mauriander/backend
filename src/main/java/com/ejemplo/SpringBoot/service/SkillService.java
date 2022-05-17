@@ -4,9 +4,9 @@
  */
 package com.ejemplo.SpringBoot.service;
 
-import com.ejemplo.SpringBoot.model.Proyecto;
+
 import com.ejemplo.SpringBoot.model.Skill;
-import com.ejemplo.SpringBoot.repository.ProyectoRepository;
+
 import com.ejemplo.SpringBoot.repository.SkillRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,4 +43,19 @@ public class SkillService implements ISkillService{
     public Skill buscarSkill(Long id) {
         return skiRep.findById(id).orElse(null);
     }
+
+@Override
+ public void editarSkill(Long id,Skill p){
+Skill pnew=skiRep.findById(id).orElse(null);
+     
+      if(pnew!=null){
+            pnew.setNombre(p.getNombre());
+            pnew.setValor(p.getValor());
+            
+            skiRep.save(pnew);}
+      else{
+      skiRep.save(p);}
+
+}
+
 }

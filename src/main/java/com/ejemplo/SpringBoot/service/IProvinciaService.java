@@ -18,4 +18,6 @@ public interface IProvinciaService {
     public void crearProvincia(Provincia pro);
     public void borrarProvincia(Long id);
     public Provincia buscarProvincia(Long id);
+    public void editarProvincia(Long id,Provincia p);
+
 }
