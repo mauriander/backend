@@ -42,5 +42,11 @@ public class UserService implements IUserService{
          return userRep.findById(id).orElse(null);
 //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    @Override
+    public User nuevoUsuario(User p) {
+       return userRep.save(p);
+//throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }

@@ -49,27 +49,46 @@ public class User {
     @Column(name = "password")
     private String password;
     
+    @Column(name = "token")
+    private String token;
+    
  //   @Column(name = "create_time")
   //  @Temporal(TemporalType.TIMESTAMP)
   //  private Date createTime;
    
+    
+    /*
     @JoinColumns({
         @JoinColumn(name = "PERSONA_id", referencedColumnName = "id", nullable = false),
       // @JoinColumn(name = "PERSONA_LOCALIDAD_id", referencedColumnName = "LOCALIDAD_id", nullable = false)
     })
-    
-    @OneToOne(optional = false)
-    private Persona persona;
+
     
 
-    public User(Long id, String username, String email, String password, Persona persona) {
+    @OneToOne(optional = false)
+    private Persona persona;
+    */
+    
+    /*
+    public User(Long id, String username, String email, String password, String token, Persona persona) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
-       // this.createTime = createTime;
+        this.token = token;
         this.persona = persona;
     }
+    */
+
+    public User(Long id, String username, String email, String password, String token) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.token = token;
+    }
+
+  
 
    
     

@@ -16,4 +16,5 @@ public interface IUserService {
     public void crearUser(User p);
     public void borrarUser(Long id);
     public User buscarUser(Long id);
+    public User nuevoUsuario(User p);
 }

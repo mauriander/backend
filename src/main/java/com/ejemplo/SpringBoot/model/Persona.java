@@ -11,6 +11,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.Set;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +21,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -36,11 +39,13 @@ public class Persona implements Serializable{
     private String nombre;
     private String apellido;
     
-    @JsonFormat(pattern="yyyy-MM-dd")
+
+     
+    @Temporal (TemporalType.DATE)
     private Date fenac;
      
 
-   
+       
     private String urlimage;
     private String domicilio;
     
@@ -67,26 +72,13 @@ public class Persona implements Serializable{
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "persona")
     private Set<Proyecto> proyectoCollection;
-   
+   /*
     @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "persona")
     private User user;
+*/
 
-  /* public Persona(Long id, String nombre, String apellido, String domicilio, Date fenac, String urlimage, Localidad localidad, Set<PersonaEducacion> personaEducacionCollection, Set<Experiencia> experienciaCollection, Set<Skill> skillCollection, User user) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.domicilio = domicilio;
-        this.fenac = fenac;
-        this.urlimage = urlimage;
-        this.localidad = localidad;
-        this.personaEducacionCollection = personaEducacionCollection;
-        this.experienciaCollection = experienciaCollection;
-        this.skillCollection = skillCollection;
-        this.user = user;
-    }
-   */
-
+/*
     public Persona(Long id, String nombre, String apellido, Date fenac, String urlimage, String domicilio, Localidad localidad, Set<PersonaEducacion> personaEducacionCollection, Set<Experiencia> experienciaCollection, Set<Skill> skillCollection, Set<Proyecto> proyectoCollection, User user) {
         this.id = id;
         this.nombre = nombre;
@@ -101,7 +93,21 @@ public class Persona implements Serializable{
         this.proyectoCollection = proyectoCollection;
         this.user = user;
     }
-    
+*/
+
+    public Persona(Long id, String nombre, String apellido, Date fenac, String urlimage, String domicilio, Localidad localidad, Set<PersonaEducacion> personaEducacionCollection, Set<Experiencia> experienciaCollection, Set<Skill> skillCollection, Set<Proyecto> proyectoCollection) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.fenac = fenac;
+        this.urlimage = urlimage;
+        this.domicilio = domicilio;
+        this.localidad = localidad;
+        this.personaEducacionCollection = personaEducacionCollection;
+        this.experienciaCollection = experienciaCollection;
+        this.skillCollection = skillCollection;
+        this.proyectoCollection = proyectoCollection;
+    }
 
     
     

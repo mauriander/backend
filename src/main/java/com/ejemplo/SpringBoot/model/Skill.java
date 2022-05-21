@@ -11,7 +11,6 @@ package com.ejemplo.SpringBoot.model;
 
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;

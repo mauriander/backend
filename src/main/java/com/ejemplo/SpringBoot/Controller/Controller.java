@@ -26,9 +26,15 @@ import com.ejemplo.SpringBoot.service.IProyectoService;
 import com.ejemplo.SpringBoot.service.ISkillService;
 import com.ejemplo.SpringBoot.service.ITipoEducacionService;
 import com.ejemplo.SpringBoot.service.IUserService;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import java.util.Date;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -319,7 +325,41 @@ public class Controller {
     }
     
      //-------------------FIN USER------------------
-    
+    @PostMapping("/usuario")
+     public User nuevoUsuario(@RequestBody User p) {
+        User usuario= new User();
+        
+        usuario.setEmail(p.getEmail());
+        usuario.setPassword(p.getPassword());
+        usuario.setUsername(p.getUsername());
+        usuario.setToken(getJWTToken(p.getToken()));
+        
+        //usuarioController.save(usuario);
+        //return usuario;
+         
+         return userServ.nuevoUsuario(usuario);
+    }
+        
+    private String getJWTToken(String username) {
+        String secretKey = "frase";
+        List<GrantedAuthority> grantedAuthorities = AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER");
+        String token = Jwts.builder()
+                .setId("apiBackend")
+                .setSubject(username)
+                .claim("authorities", grantedAuthorities
+                        .stream()
+                        .map(GrantedAuthority::getAuthority)
+                        .collect(Collectors.toList()))
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                /* SI SE QUIERE HACER QUE EL TOKEN EXPIRE LUEGO DE UN TIEMPO USAMOS LO SIGUIENTE * 900000 = 15 MINUTOS - 1 MINUTO  = 60000 MILISEGUNDOS
+		.setExpiration(new Date(System.currentTimeMillis()+900000))
+                */
+                .signWith(SignatureAlgorithm.HS512, secretKey.getBytes())
+                .compact();
+        return "Bearer " + token;
+        //agrego bearer para ya llegarlo de la base de datos, puedo no ponerlo pero se recomienda porque es facil de olvidar
+    }
+
     
     
 }

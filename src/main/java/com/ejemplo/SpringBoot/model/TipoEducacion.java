@@ -47,11 +47,7 @@ public class TipoEducacion implements Serializable  {
     @Column(name = "fechafin")
     @Temporal (TemporalType.DATE)
      private Date fechafin;
-   /*  
-    @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoeducacion")
-    private Collection<Educacion> educacionCollection;
-*/
+
     public TipoEducacion(Long id, String nombre, Date fechaini, Date fechafin) {
         this.id = id;
         this.nombre = nombre;

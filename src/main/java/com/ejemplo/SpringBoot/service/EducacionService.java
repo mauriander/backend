@@ -41,19 +41,20 @@ public class EducacionService implements IEducacionService{
 // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
+
 @Override
 public void editarEducacion(Long id,Educacion p){
 Educacion pnew=edRep.findById(id).orElse(null);
      
       if(pnew!=null){
             pnew.setNombre(p.getNombre());
+pnew.setInstitucion(p.getInstitucion());
             pnew.setNivel(p.getNivel());
             pnew.setFechafin(p.getFechafin());
             pnew.setFechaini(p.getFechaini());
            // pnew.setPersonaEducacionCollection(p.getPersonaEducacionCollection());
            // pnew.setTipoeducacion(p.getTipoeducacion());
-            
+
             
             edRep.save(pnew);}
       else{
