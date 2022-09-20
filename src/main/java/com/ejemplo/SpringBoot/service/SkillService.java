@@ -57,5 +57,9 @@ Skill pnew=skiRep.findById(id).orElse(null);
       skiRep.save(p);}
 
 }
-
+ @Override
+    public void editarSkill(Skill p) {
+        skiRep.save(p);
+       
+    }
 }

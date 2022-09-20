@@ -26,15 +26,16 @@ import com.ejemplo.SpringBoot.service.IProyectoService;
 import com.ejemplo.SpringBoot.service.ISkillService;
 import com.ejemplo.SpringBoot.service.ITipoEducacionService;
 import com.ejemplo.SpringBoot.service.IUserService;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import java.util.Date;
+//import io.jsonwebtoken.Jwts;
+//import io.jsonwebtoken.SignatureAlgorithm;
+//import java.util.Date;
 
 import java.util.List;
-import java.util.stream.Collectors;
+//import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.security.core.GrantedAuthority;
+//import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,11 +43,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+//import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-@CrossOrigin
+
 @RestController
+@CrossOrigin("*")
+
 public class Controller {
     
     //creo lista para simular base de datos
@@ -166,7 +170,7 @@ public class Controller {
    //--------------------Inicio Skill------------------
      @Autowired
     private ISkillService skiServ;      
-        
+    @PreAuthorize("hasRole('ADMIN')")   
     @PostMapping("/new/skill")
     public void agregarSkill(@RequestBody Skill prov){
         skiServ.crearSkill(prov);
@@ -177,12 +181,23 @@ public class Controller {
     public List<Skill> verSkills(){
     return skiServ.verSkills();
     }
-           
+     @PreAuthorize("hasRole('ADMIN')")          
     @DeleteMapping("/eliminar/skill/{id}")
     public void borrarSkill(@PathVariable Long id){
         skiServ.borrarSkill(id);
     }
+     @PreAuthorize("hasRole('ADMIN')")   
+     @PutMapping("editar/skill/{id}")
+    public void editarSkill(@PathVariable Long id,@RequestBody Skill p){
     
+    skiServ.editarSkill(id, p);
+    }
+     @PreAuthorize("hasRole('ADMIN')")   
+    @PutMapping("edit/skill/")
+    public void editarSkill(@RequestBody Skill p){
+    
+  skiServ.editarSkill( p);
+    }
     
     //--------------------Fin Skill------------------
     
@@ -205,7 +220,11 @@ public class Controller {
     public void borrarExperiencia(@PathVariable Long id){
         expServ.borrarExperiencia(id);
     }
+    @PutMapping("editar/experiencia/{id}")
+    public void editarExperiencia(@PathVariable Long id,@RequestBody Experiencia p){
     
+    expServ.editarExperiencia(id, p);
+    }
     
     //--------------------Fin Experiencia-----------------
     
@@ -227,6 +246,12 @@ public class Controller {
     @DeleteMapping("/eliminar/proyecto/{id}")
     public void borrarProyecto(@PathVariable Long id){
         proServ.borrarProyecto(id);
+    }
+    
+    @PutMapping("editar/proyecto/{id}")
+    public void editarProyecto(@PathVariable Long id,@RequestBody Proyecto p){
+    
+    proServ.editarProyecto(id, p);
     }
     
     
@@ -300,8 +325,16 @@ public class Controller {
     public void borrarEducacion(@PathVariable Long id){
         eduServ.borrarEducacion(id);
     }
+    @PutMapping("editar/educacion/{id}")
+    public void editarEducacion(@PathVariable Long id,@RequestBody Educacion p){
     
+    eduServ.editarEducacion(id, p);
+    }
+    @PutMapping("edit/educacion/")
+    public void editarEducacion(@RequestBody Educacion p){
     
+    eduServ.editarEducacion(p);
+    }
     //--------------------Fin Educacion------------------
      //--------------------Inicio USER------------------
     
@@ -332,14 +365,14 @@ public class Controller {
         usuario.setEmail(p.getEmail());
         usuario.setPassword(p.getPassword());
         usuario.setUsername(p.getUsername());
-        usuario.setToken(getJWTToken(p.getToken()));
+       // usuario.setToken(getJWTToken(p.getToken()));
         
         //usuarioController.save(usuario);
         //return usuario;
          
          return userServ.nuevoUsuario(usuario);
     }
-        
+      /*  
     private String getJWTToken(String username) {
         String secretKey = "frase";
         List<GrantedAuthority> grantedAuthorities = AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER");
@@ -351,14 +384,14 @@ public class Controller {
                         .map(GrantedAuthority::getAuthority)
                         .collect(Collectors.toList()))
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                /* SI SE QUIERE HACER QUE EL TOKEN EXPIRE LUEGO DE UN TIEMPO USAMOS LO SIGUIENTE * 900000 = 15 MINUTOS - 1 MINUTO  = 60000 MILISEGUNDOS
+                // SI SE QUIERE HACER QUE EL TOKEN EXPIRE LUEGO DE UN TIEMPO USAMOS LO SIGUIENTE * 900000 = 15 MINUTOS - 1 MINUTO  = 60000 MILISEGUNDOS
 		.setExpiration(new Date(System.currentTimeMillis()+900000))
-                */
+                
                 .signWith(SignatureAlgorithm.HS512, secretKey.getBytes())
                 .compact();
         return "Bearer " + token;
         //agrego bearer para ya llegarlo de la base de datos, puedo no ponerlo pero se recomienda porque es facil de olvidar
-    }
+    }*/
 
     
     

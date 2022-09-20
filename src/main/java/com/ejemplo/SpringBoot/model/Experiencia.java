@@ -57,7 +57,7 @@ public class Experiencia {
     private Date fechaFin;
     
      @Column(name = "actual")
-     private Integer actual;
+     private String actual;
     
     
 
@@ -90,7 +90,7 @@ public class Experiencia {
         this.persona = persona;
     }
 */
-    public Experiencia(Long id, String nombre, String descripcion, Date fechaIni, Date fechaFin, Integer actual, Persona persona) {
+    public Experiencia(Long id, String nombre, String descripcion, Date fechaIni, Date fechaFin, String actual, Persona persona) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;

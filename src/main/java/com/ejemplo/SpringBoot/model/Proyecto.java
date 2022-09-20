@@ -54,7 +54,7 @@ public class Proyecto {
      
       @JoinColumns({
         @JoinColumn(name = "PERSONA_id", referencedColumnName = "id",nullable = false)
-      ,@JoinColumn(name = "PERSONA_LOCALIDAD_id", referencedColumnName = "LOCALIDAD_id", nullable = false) //podria dejar esta linea porque no me aporta
+      //,@JoinColumn(name = "PERSONA_LOCALIDAD_id", referencedColumnName = "LOCALIDAD_id", nullable = false) //podria dejar esta linea porque no me aporta
     })
       
     
@@ -82,6 +82,14 @@ public class Proyecto {
 
    
     
+    public Proyecto(Long id, String nombre, String url, String tipotec, String descripcion) {
+        this.id = id;
+        this.nombre = nombre;
+        this.url = url;
+        this.tipotec = tipotec;
+        this.descripcion = descripcion;
+    } 
+
     public Proyecto(Long id, String nombre, String url, String tipotec, String descripcion, Persona persona) {
         this.id = id;
         this.nombre = nombre;

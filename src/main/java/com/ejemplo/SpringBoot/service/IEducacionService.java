@@ -17,5 +17,11 @@ public interface IEducacionService {
     public void crearEducacion(Educacion p);
     public void borrarEducacion(Long id);
     public Educacion buscarEducacion(Long id);
-public void editarEducacion(Long id,Educacion p);
+    public void editarEducacion(Long id,Educacion p);
+
+    /**
+     *
+     * @param p
+     */
+    public void editarEducacion(Educacion p);
 }

@@ -48,7 +48,7 @@ Educacion pnew=edRep.findById(id).orElse(null);
      
       if(pnew!=null){
             pnew.setNombre(p.getNombre());
-pnew.setInstitucion(p.getInstitucion());
+            pnew.setInstitucion(p.getInstitucion());
             pnew.setNivel(p.getNivel());
             pnew.setFechafin(p.getFechafin());
             pnew.setFechaini(p.getFechaini());
@@ -61,6 +61,12 @@ pnew.setInstitucion(p.getInstitucion());
       edRep.save(p);}
 
 }
+
+    @Override
+    public void editarEducacion(Educacion p) {
+         edRep.save(p);
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 
 }

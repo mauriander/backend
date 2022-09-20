@@ -44,7 +44,7 @@ public class Skill implements Serializable{
    
     @JoinColumns({
         @JoinColumn(name = "PERSONA_id", referencedColumnName = "id",nullable = false)
-       ,@JoinColumn(name = "PERSONA_LOCALIDAD_id", referencedColumnName = "LOCALIDAD_id", nullable = false)
+       //,@JoinColumn(name = "PERSONA_LOCALIDAD_id", referencedColumnName = "LOCALIDAD_id", nullable = false)
     })
     
     @ManyToOne(optional = false)
