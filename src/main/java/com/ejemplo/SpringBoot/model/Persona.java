@@ -47,7 +47,7 @@ public class Persona implements Serializable{
 
        
     private String urlimage;
-    private String domicilio;
+    private String email;
     
      
     
@@ -95,19 +95,21 @@ public class Persona implements Serializable{
     }
 */
 
-    public Persona(Long id, String nombre, String apellido, Date fenac, String urlimage, String domicilio, Localidad localidad, Set<PersonaEducacion> personaEducacionCollection, Set<Experiencia> experienciaCollection, Set<Skill> skillCollection, Set<Proyecto> proyectoCollection) {
+    public Persona(Long id, String nombre, String apellido, Date fenac, String urlimage, String email, Localidad localidad, Set<PersonaEducacion> personaEducacionCollection, Set<Experiencia> experienciaCollection, Set<Skill> skillCollection, Set<Proyecto> proyectoCollection) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.fenac = fenac;
         this.urlimage = urlimage;
-        this.domicilio = domicilio;
+        this.email = email;
         this.localidad = localidad;
         this.personaEducacionCollection = personaEducacionCollection;
         this.experienciaCollection = experienciaCollection;
         this.skillCollection = skillCollection;
         this.proyectoCollection = proyectoCollection;
     }
+    
+    
 
     
     

@@ -49,9 +49,10 @@ public class PersonaService implements IPersonaService{
       if(pnew!=null){
             pnew.setNombre(p.getNombre());
             pnew.setApellido(p.getApellido());
-            pnew.setDomicilio(p.getDomicilio());
+            pnew.setEmail(p.getEmail());
             pnew.setFenac(p.getFenac());
             pnew.setUrlimage(p.getUrlimage());
+            pnew.setLocalidad(p.getLocalidad());
             //continuar con cada atributo
             
             perRep.save(pnew);}

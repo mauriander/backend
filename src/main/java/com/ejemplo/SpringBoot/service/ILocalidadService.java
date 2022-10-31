@@ -16,5 +16,6 @@ public interface ILocalidadService {
     public void crearLocalidad(Localidad p);
     public void borrarLocalidad(Long id);
     public Localidad buscarLocalidad(Long id); 
+    
 public void editarLocalidad(Long id,Localidad p); 
 }

@@ -58,7 +58,12 @@ public class Localidad implements Serializable  {
         this.cp = cp;
         this.nombre = nombre;
         this.personaCollection = personaCollection;
-        
+        this.province = province;
+    }
+      public Localidad(Long id, int cp, String nombre, Provincia province) {
+        this.id = id;
+        this.cp = cp;
+        this.nombre = nombre;
         this.province = province;
     }
 
@@ -71,6 +76,8 @@ public class Localidad implements Serializable  {
     
      public Localidad() {
     }
+     
+     
     @Override
     public int hashCode() {
         int hash = 0;

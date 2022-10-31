@@ -6,6 +6,7 @@ package com.ejemplo.SpringBoot.Controller;
 
 //deemos mapear para indicarle que es nuestra clase controlaadora con rest contrllier y el Import correspondiente
 
+import com.ejemplo.SpringBoot.model.Acercade;
 import com.ejemplo.SpringBoot.model.Educacion;
 import com.ejemplo.SpringBoot.model.Experiencia;
 import com.ejemplo.SpringBoot.model.Localidad;
@@ -16,6 +17,7 @@ import com.ejemplo.SpringBoot.model.Proyecto;
 import com.ejemplo.SpringBoot.model.Skill;
 import com.ejemplo.SpringBoot.model.TipoEducacion;
 import com.ejemplo.SpringBoot.model.User;
+import com.ejemplo.SpringBoot.service.IAcercadeService;
 import com.ejemplo.SpringBoot.service.IEducacionService;
 import com.ejemplo.SpringBoot.service.IExperienciaService;
 import com.ejemplo.SpringBoot.service.ILocalidadService;
@@ -123,6 +125,11 @@ public class Controller {
     return locServ.verLocalidades();
     }
     
+      @PutMapping("editar/persona/{id}")
+    public void editarPersona(@PathVariable Long id,@RequestBody Persona p){
+    
+    perServ.editarPersona(id, p);
+    }
     
     
      @DeleteMapping("/eliminar/persona/{id}")
@@ -136,6 +143,17 @@ public class Controller {
       // listaLocalidades.removeIf(Localidad -> Localidad.getId().equals(id));
     locServ.borrarLocalidad(id);
     }
+   
+    
+    
+   
+    @GetMapping("buscar/localidad/{id}")
+    public Localidad buscarLocalidad(@PathVariable Long id){
+    
+    return locServ.buscarLocalidad(id);
+    
+    }
+   
     //-------------------FIN PERSONA Y LOCALIDAD------------------
    
    
@@ -164,6 +182,14 @@ public class Controller {
     
     provServ.editarProvincia(id, p);
     }
+    
+    
+       @GetMapping("buscar/provincia/{id}")
+    public void buscarProvincia(@PathVariable Long id){
+    
+    provServ.buscarProvincia(id);
+    }
+    
     
     
     //--------------------Fin Provincia------------------
@@ -220,7 +246,7 @@ public class Controller {
     public void borrarExperiencia(@PathVariable Long id){
         expServ.borrarExperiencia(id);
     }
-    @PutMapping("editar/experiencia/{id}")
+    @PutMapping("/editar/experiencia/{id}")
     public void editarExperiencia(@PathVariable Long id,@RequestBody Experiencia p){
     
     expServ.editarExperiencia(id, p);
@@ -228,7 +254,7 @@ public class Controller {
     
     //--------------------Fin Experiencia-----------------
     
-      //--------------------Inicio Skill------------------
+      //--------------------Inicio Proyecto------------------
      @Autowired
     private IProyectoService proServ;      
         
@@ -248,14 +274,14 @@ public class Controller {
         proServ.borrarProyecto(id);
     }
     
-    @PutMapping("editar/proyecto/{id}")
+    @PutMapping("/editar/proyecto/{id}")
     public void editarProyecto(@PathVariable Long id,@RequestBody Proyecto p){
     
     proServ.editarProyecto(id, p);
     }
     
     
-    //--------------------Fin Skill------------------
+    //--------------------Fin Proyecto------------------
     
      //--------------------Inicio PersonaEducacion------------------
      @Autowired
@@ -278,9 +304,46 @@ public class Controller {
     }
     
     
-    //--------------------Fin PersonaEducacion------------------
+    
+//--------------------Fin PersonaEducacion------------------
+    
+    //--------------------Inicio Acercade------------------
+    
+     @Autowired
+    private IAcercadeService acdServ;      
+        
+    @PostMapping("/new/acercade")
+    public void agregarAcercade(@RequestBody Acercade p){
+       acdServ.crearAcercade(p);
+    }
+        
+    @GetMapping("/ver/acercades")
+    @ResponseBody
+    public List<Acercade> verAcercades(){
+    return acdServ.verAcercades();
+    }
+    
+      @GetMapping("buscar/acercade")
+      public Acercade buscarAcercade(@PathVariable Long id){
+        return  acdServ.buscarAcercade(id);
+        }
+      
+      
+     
+    @DeleteMapping("/eliminar/acercade/{id}")
+    public void borrarAcercade (@PathVariable Long id){
+        acdServ.borrarAcercade(id);
+    } 
     
     
+    
+    
+  @PutMapping("editar/acercade/{id}")
+    public void editarEducacion(@PathVariable Long id,@RequestBody Acercade p){
+    
+    acdServ.editarAcercade(id, p);
+    }
+    //--------------------Fin Acercade------------------
     
     //--------------------Inicio TipoEducacion------------------
      @Autowired

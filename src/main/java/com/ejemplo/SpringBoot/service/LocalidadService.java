@@ -48,6 +48,7 @@ public class LocalidadService implements ILocalidadService{
     public Localidad buscarLocalidad(Long id) {
         return locRep.findById(id).orElse(null);
     }
+     
 
  @Override
 public void editarLocalidad(Long id,Localidad p){
