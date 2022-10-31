@@ -369,7 +369,7 @@ public class Controller {
     //--------------------Fin TipoEducacion------------------
     
     
-     //--------------------Inicio TipoEducacion------------------
+     //--------------------Inicio Educacion------------------
      @Autowired
     private IEducacionService eduServ;      
         
@@ -378,10 +378,16 @@ public class Controller {
         eduServ.crearEducacion(p);
     }
         
-    @GetMapping("/ver/educaciones")
+ 
+     @GetMapping("/ver/educaciones")
     @ResponseBody
     public List<Educacion> verEducaciones(){
     return eduServ.verEducaciones();
+    }
+     @GetMapping("/buscar/educacion/{id}")
+    @ResponseBody
+    public Educacion buscarEducacion(@PathVariable Long id){
+    return eduServ.buscarEducacion(id);
     }
            
     @DeleteMapping("/eliminar/educacion/{id}")
