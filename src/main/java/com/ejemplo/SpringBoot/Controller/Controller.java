@@ -51,8 +51,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-//@CrossOrigin("*")
-@CrossOrigin( origins = "https://frontendargprogprueba.web.app")
+@CrossOrigin("*")
+//@CrossOrigin( origins = "https://frontendargprogprueba.web.app/")
 public class Controller {
     
     //creo lista para simular base de datos
