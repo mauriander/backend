@@ -28,6 +28,8 @@ import com.ejemplo.SpringBoot.service.IProyectoService;
 import com.ejemplo.SpringBoot.service.ISkillService;
 import com.ejemplo.SpringBoot.service.ITipoEducacionService;
 import com.ejemplo.SpringBoot.service.IUserService;
+
+        
 //import io.jsonwebtoken.Jwts;
 //import io.jsonwebtoken.SignatureAlgorithm;
 //import java.util.Date;
@@ -50,10 +52,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+
 //@CrossOrigin("**")
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "/**")
+@CrossOrigin(origins = "http://localhost:4200")
 //@CrossOrigin( origins = "https://frontendargprogprueba.web.app/")
+@RestController
 public class Controller {
     
     //creo lista para simular base de datos
@@ -208,7 +212,7 @@ public class Controller {
     public List<Skill> verSkills(){
     return skiServ.verSkills();
     }
-     @PreAuthorize("hasRole('ADMIN')")          
+    @PreAuthorize("hasRole('ADMIN')")          
     @DeleteMapping("/eliminar/skill/{id}")
     public void borrarSkill(@PathVariable Long id){
         skiServ.borrarSkill(id);
@@ -219,7 +223,7 @@ public class Controller {
     
     skiServ.editarSkill(id, p);
     }
-     @PreAuthorize("hasRole('ADMIN')")   
+    @PreAuthorize("hasRole('ADMIN')")   
     @PutMapping("edit/skill/")
     public void editarSkill(@RequestBody Skill p){
     
@@ -340,7 +344,7 @@ public class Controller {
     
     
   @PutMapping("editar/acercade/{id}")
-    public void editarEducacion(@PathVariable Long id,@RequestBody Acercade p){
+    public void editarAcercade(@PathVariable Long id,@RequestBody Acercade p){
     
     acdServ.editarAcercade(id, p);
     }
@@ -379,7 +383,14 @@ public class Controller {
         eduServ.crearEducacion(p);
     }
         
- 
+ /*
+     @GetMapping("/ver/educaciones")
+    @ResponseBody
+    public List<Educacion> verEducaciones(){
+    return eduServ.verEducaciones();
+    }*/
+    
+        
      @GetMapping("/ver/educaciones")
     @ResponseBody
     public List<Educacion> verEducaciones(){
@@ -397,12 +408,11 @@ public class Controller {
     }
     @PutMapping("editar/educacion/{id}")
     public void editarEducacion(@PathVariable Long id,@RequestBody Educacion p){
-    
     eduServ.editarEducacion(id, p);
     }
+    
     @PutMapping("edit/educacion/")
     public void editarEducacion(@RequestBody Educacion p){
-    
     eduServ.editarEducacion(p);
     }
     //--------------------Fin Educacion------------------

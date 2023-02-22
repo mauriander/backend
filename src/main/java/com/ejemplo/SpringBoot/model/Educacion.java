@@ -73,6 +73,8 @@ public class Educacion implements Serializable  {
         this.personaEducacionCollection = personaEducacionCollection;
         this.tipoeducacion = tipoeducacion;
     }*/
+     
+    
 
     public Educacion(Long id, String nombre, String nivel, String institucion, Date fechaini, Date fechafin, Collection<PersonaEducacion> personaEducacionCollection) {
         this.id = id;

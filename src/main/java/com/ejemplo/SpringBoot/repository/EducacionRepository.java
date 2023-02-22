@@ -5,9 +5,9 @@
 package com.ejemplo.SpringBoot.repository;
 
 import com.ejemplo.SpringBoot.model.Educacion;
-//import com.ejemplo.SpringBoot.model.Skill;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
 
 /**
  *
@@ -17,3 +17,4 @@ import org.springframework.stereotype.Repository;
 public interface EducacionRepository extends JpaRepository< Educacion, Long>{
     
 }
+
