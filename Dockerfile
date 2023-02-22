@@ -1,4 +1,4 @@
-FROM amazoncorretto:11-alpine-jdk
-MAINTAINER SpringB
-COPY target/SpringBoot-0.0.1-SNAPSHOT.jar portfolio-app.jar
-ENTRYPOINT ["java","-jar","/portfolio-app.jar"]
+FROM amazoncorretto:8-alpine-jdk
+MAINTAINER MAURIANDER
+COPY target/SpringBoot-0.0.1-SNAPSHOT.jar SpringBoot-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java","-jar","/SpringBoot-0.0.1-SNAPSHOT.jar"]
