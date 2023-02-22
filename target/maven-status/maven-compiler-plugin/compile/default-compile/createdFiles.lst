@@ -50,6 +50,7 @@ com\ejemplo\SpringBoot\repository\LocalidadRepository.class
 com\ejemplo\SpringBoot\model\TipoEducacion.class
 com\ejemplo\SpringBoot\service\AcercadeService.class
 com\ejemplo\SpringBoot\repository\AcercadeRepository.class
+.netbeans_automatic_build
 com\ejemplo\SpringBoot\Security\Dto\NuevoUsuario.class
 com\ejemplo\SpringBoot\Security\Enums\RolNombre.class
 com\ejemplo\SpringBoot\Security\Repository\iRolRepository.class
