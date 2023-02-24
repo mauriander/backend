@@ -23,6 +23,7 @@ C:\Users\MAURICIO\Desktop\SpringBootprueba - IMPLEMENTACION 2 JWT\src\main\java\
 C:\Users\MAURICIO\Desktop\SpringBootprueba - IMPLEMENTACION 2 JWT\src\main\java\com\ejemplo\SpringBoot\Controller\Controller.java
 C:\Users\MAURICIO\Desktop\SpringBootprueba - IMPLEMENTACION 2 JWT\src\main\java\com\ejemplo\SpringBoot\Security\Service\UsuarioService.java
 C:\Users\MAURICIO\Desktop\SpringBootprueba - IMPLEMENTACION 2 JWT\src\main\java\com\ejemplo\SpringBoot\model\Proyecto.java
+C:\Users\MAURICIO\Desktop\SpringBootprueba - IMPLEMENTACION 2 JWT\src\main\java\com\ejemplo\SpringBoot\service\EducationService.java
 C:\Users\MAURICIO\Desktop\SpringBootprueba - IMPLEMENTACION 2 JWT\src\main\java\com\ejemplo\SpringBoot\model\PersonaEducacion.java
 C:\Users\MAURICIO\Desktop\SpringBootprueba - IMPLEMENTACION 2 JWT\src\main\java\com\ejemplo\SpringBoot\service\ExperienciaService.java
 C:\Users\MAURICIO\Desktop\SpringBootprueba - IMPLEMENTACION 2 JWT\src\main\java\com\ejemplo\SpringBoot\WebConfig.java
@@ -44,6 +45,7 @@ C:\Users\MAURICIO\Desktop\SpringBootprueba - IMPLEMENTACION 2 JWT\src\main\java\
 C:\Users\MAURICIO\Desktop\SpringBootprueba - IMPLEMENTACION 2 JWT\src\main\java\com\ejemplo\SpringBoot\Security\Controller\AuthController.java
 C:\Users\MAURICIO\Desktop\SpringBootprueba - IMPLEMENTACION 2 JWT\src\main\java\com\ejemplo\SpringBoot\service\TipoEducacionService.java
 C:\Users\MAURICIO\Desktop\SpringBootprueba - IMPLEMENTACION 2 JWT\src\main\java\com\ejemplo\SpringBoot\service\UserService.java
+C:\Users\MAURICIO\Desktop\SpringBootprueba - IMPLEMENTACION 2 JWT\src\main\java\com\ejemplo\SpringBoot\model\Education.java
 C:\Users\MAURICIO\Desktop\SpringBootprueba - IMPLEMENTACION 2 JWT\src\main\java\com\ejemplo\SpringBoot\service\IUserService.java
 C:\Users\MAURICIO\Desktop\SpringBootprueba - IMPLEMENTACION 2 JWT\src\main\java\com\ejemplo\SpringBoot\model\TipoEducacion.java
 C:\Users\MAURICIO\Desktop\SpringBootprueba - IMPLEMENTACION 2 JWT\src\main\java\com\ejemplo\SpringBoot\service\IProyectoService.java
@@ -56,7 +58,9 @@ C:\Users\MAURICIO\Desktop\SpringBootprueba - IMPLEMENTACION 2 JWT\src\main\java\
 C:\Users\MAURICIO\Desktop\SpringBootprueba - IMPLEMENTACION 2 JWT\src\main\java\com\ejemplo\SpringBoot\repository\PersonaRepository.java
 C:\Users\MAURICIO\Desktop\SpringBootprueba - IMPLEMENTACION 2 JWT\src\main\java\com\ejemplo\SpringBoot\service\LocalidadService.java
 C:\Users\MAURICIO\Desktop\SpringBootprueba - IMPLEMENTACION 2 JWT\src\main\java\com\ejemplo\SpringBoot\model\JwtResponse.java
+C:\Users\MAURICIO\Desktop\SpringBootprueba - IMPLEMENTACION 2 JWT\src\main\java\com\ejemplo\SpringBoot\repository\EducationRepository.java
 C:\Users\MAURICIO\Desktop\SpringBootprueba - IMPLEMENTACION 2 JWT\src\main\java\com\ejemplo\SpringBoot\repository\LocalidadRepository.java
+C:\Users\MAURICIO\Desktop\SpringBootprueba - IMPLEMENTACION 2 JWT\src\main\java\com\ejemplo\SpringBoot\service\IEducationService.java
 C:\Users\MAURICIO\Desktop\SpringBootprueba - IMPLEMENTACION 2 JWT\src\main\java\com\ejemplo\SpringBoot\repository\ProvinciaRepository.java
 C:\Users\MAURICIO\Desktop\SpringBootprueba - IMPLEMENTACION 2 JWT\src\main\java\com\ejemplo\SpringBoot\service\IEducacionService.java
 C:\Users\MAURICIO\Desktop\SpringBootprueba - IMPLEMENTACION 2 JWT\src\main\java\com\ejemplo\SpringBoot\model\Educacion.java

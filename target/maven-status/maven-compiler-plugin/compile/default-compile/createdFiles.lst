@@ -19,7 +19,9 @@ com\ejemplo\SpringBoot\repository\TipoEducacionRepository.class
 com\ejemplo\SpringBoot\service\IAcercadeService.class
 com\ejemplo\SpringBoot\model\Skill.class
 com\ejemplo\SpringBoot\Security\Repository\iUsuarioRepository.class
+com\ejemplo\SpringBoot\repository\EducationRepository.class
 com\ejemplo\SpringBoot\service\IPersonaEducacionService.class
+com\ejemplo\SpringBoot\service\EducationService.class
 com\ejemplo\SpringBoot\model\Localidad.class
 com\ejemplo\SpringBoot\Controller\Controller.class
 com\ejemplo\SpringBoot\Security\Service\UserDetailsImpl.class
@@ -27,6 +29,7 @@ com\ejemplo\SpringBoot\Security\Controller\Mensaje.class
 com\ejemplo\SpringBoot\model\Experiencia.class
 com\ejemplo\SpringBoot\repository\PersonaEducacionRepository.class
 com\ejemplo\SpringBoot\repository\ExperienciaRepository.class
+com\ejemplo\SpringBoot\model\Education.class
 com\ejemplo\SpringBoot\repository\EducacionRepository.class
 com\ejemplo\SpringBoot\service\IProvinciaService.class
 com\ejemplo\SpringBoot\Security\Dto\JwtDto.class
@@ -63,4 +66,5 @@ com\ejemplo\SpringBoot\model\JwtRequest.class
 com\ejemplo\SpringBoot\Security\Entity\UsuarioPrincipal.class
 com\ejemplo\SpringBoot\Security\jwt\JwtTokenFilter.class
 com\ejemplo\SpringBoot\Security\Entity\Usuario.class
+com\ejemplo\SpringBoot\service\IEducationService.class
 com\ejemplo\SpringBoot\service\IUserService.class

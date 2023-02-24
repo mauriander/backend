@@ -4,7 +4,6 @@
  */
 package com.ejemplo.SpringBoot.service;
 
-import com.ejemplo.SpringBoot.model.Educacion;
 import com.ejemplo.SpringBoot.model.Experiencia;
 import java.util.List;
 

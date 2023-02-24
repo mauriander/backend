@@ -5,6 +5,7 @@
 package com.ejemplo.SpringBoot.service;
 
 import com.ejemplo.SpringBoot.model.Educacion;
+import java.util.Collection;
 
 import java.util.List;
 
@@ -14,10 +15,9 @@ import java.util.List;
  */
 public interface IEducacionService {
     public List<Educacion> verEducaciones();
-    public void crearEducacion(Educacion p);
+       public void crearEducacion(Educacion p);
     public void borrarEducacion(Long id);
     public Educacion buscarEducacion(Long id);
     public void editarEducacion(Long id,Educacion p);
-  
     public void editarEducacion(Educacion p);
 }

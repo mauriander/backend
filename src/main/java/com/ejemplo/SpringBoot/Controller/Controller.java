@@ -8,6 +8,7 @@ package com.ejemplo.SpringBoot.Controller;
 
 import com.ejemplo.SpringBoot.model.Acercade;
 import com.ejemplo.SpringBoot.model.Educacion;
+import com.ejemplo.SpringBoot.model.Education;
 import com.ejemplo.SpringBoot.model.Experiencia;
 import com.ejemplo.SpringBoot.model.Localidad;
 import com.ejemplo.SpringBoot.model.Persona;
@@ -19,6 +20,7 @@ import com.ejemplo.SpringBoot.model.TipoEducacion;
 import com.ejemplo.SpringBoot.model.User;
 import com.ejemplo.SpringBoot.service.IAcercadeService;
 import com.ejemplo.SpringBoot.service.IEducacionService;
+import com.ejemplo.SpringBoot.service.IEducationService;
 import com.ejemplo.SpringBoot.service.IExperienciaService;
 import com.ejemplo.SpringBoot.service.ILocalidadService;
 import com.ejemplo.SpringBoot.service.IPersonaEducacionService;
@@ -28,6 +30,7 @@ import com.ejemplo.SpringBoot.service.IProyectoService;
 import com.ejemplo.SpringBoot.service.ISkillService;
 import com.ejemplo.SpringBoot.service.ITipoEducacionService;
 import com.ejemplo.SpringBoot.service.IUserService;
+//import java.util.Collection;
 
         
 //import io.jsonwebtoken.Jwts;
@@ -288,6 +291,34 @@ public class Controller {
     
     //--------------------Fin Proyecto------------------
     
+       @Autowired
+    private IEducationService educationServ;      
+        
+    @PostMapping("/new/education")
+    public void agregarEducation(@RequestBody Education p){
+        educationServ.crearEducation(p);
+    }
+        
+    @GetMapping("/ver/educations")
+    @ResponseBody
+    public List<Education> verEducations(){
+    return  educationServ.verEducations();
+    }
+           
+    @DeleteMapping("/eliminar/education/{id}")
+    public void borrarEducation(@PathVariable Long id){
+         educationServ.borrarEducation(id);
+    }
+    
+    @PutMapping("/editar/education/{id}")
+    public void editarEducation(@PathVariable Long id,@RequestBody Education p){
+    educationServ.editarEducation(id, p);
+    }
+    
+    
+    
+    
+    
      //--------------------Inicio PersonaEducacion------------------
      @Autowired
     private IPersonaEducacionService pedServ;      
@@ -375,7 +406,7 @@ public class Controller {
     
     
      //--------------------Inicio Educacion------------------
-     @Autowired
+   @Autowired
     private IEducacionService eduServ;      
         
     @PostMapping("/new/educacion")
@@ -383,23 +414,10 @@ public class Controller {
         eduServ.crearEducacion(p);
     }
         
- /*
-     @GetMapping("/ver/educaciones")
+    @GetMapping("/ver/educaciones")
     @ResponseBody
     public List<Educacion> verEducaciones(){
     return eduServ.verEducaciones();
-    }*/
-    
-        
-     @GetMapping("/ver/educaciones")
-    @ResponseBody
-    public List<Educacion> verEducaciones(){
-    return eduServ.verEducaciones();
-    }
-     @GetMapping("/buscar/educacion/{id}")
-    @ResponseBody
-    public Educacion buscarEducacion(@PathVariable Long id){
-    return eduServ.buscarEducacion(id);
     }
            
     @DeleteMapping("/eliminar/educacion/{id}")
@@ -408,11 +426,12 @@ public class Controller {
     }
     @PutMapping("editar/educacion/{id}")
     public void editarEducacion(@PathVariable Long id,@RequestBody Educacion p){
+    
     eduServ.editarEducacion(id, p);
     }
-    
     @PutMapping("edit/educacion/")
     public void editarEducacion(@RequestBody Educacion p){
+    
     eduServ.editarEducacion(p);
     }
     //--------------------Fin Educacion------------------
