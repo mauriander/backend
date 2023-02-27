@@ -59,7 +59,7 @@ import org.springframework.web.bind.annotation.RestController;
 //@CrossOrigin("**")
 //@CrossOrigin(origins = "/**")
 //@CrossOrigin(origins = "http://localhost:4200")
-@CrossOrigin( origins = "https://frontendargprogprueba.web.app") 
+@CrossOrigin(origins = {"http://localhost:4200","https://frontendargprogprueba.web.app"})
                            
 @RestController
 public class Controller {
